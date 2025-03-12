@@ -1,5 +1,79 @@
-
+'use client'
+import React, { useState } from 'react';
 export const ContactForm = () => {
+      const [formData, setFormData] = useState({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+      });
+  
+      const [errors, setErrors] = useState({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+      });
+  
+      const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+          const { name, value } = e.target;
+          setFormData({ ...formData, [name]: value });
+      };
+  
+      const validateForm = () => {
+          let valid = true;
+          const errors = { name: '', email: '', subject: '', message: '' };
+  
+          if (!formData.name.trim()) {
+              errors.name = 'Name is required';
+              valid = false;
+          }
+          if (!formData.email.trim()) {
+              errors.email = 'Email is required';
+              valid = false;
+          } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+              errors.email = 'Invalid email address';
+              valid = false;
+          }
+          if (!formData.subject.trim()) {
+              errors.subject = 'Subject is required';
+              valid = false;
+          }
+          if (!formData.message.trim()) {
+              errors.message = 'Message is required';
+              valid = false;
+          }
+  
+          setErrors(errors);
+          return valid;
+      };
+  
+      const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+          e.preventDefault();
+          if (validateForm()) {
+              try {
+                  const response = await fetch('https://api.example.com/send-email', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({
+                          to: 'chief@biocomputeinc.com',
+                          subject: `New Message from ${formData.name}`,
+                          text: JSON.stringify(formData, null, 2)
+                      })
+                  });
+  
+                  if (response.ok) {
+                      console.log('Form submitted successfully');
+                      alert('Your message has been sent!');
+                      setFormData({ name: '', email: '', subject: '', message: '' });
+                  } else {
+                      console.error('Form submission failed');
+                  }
+              } catch (error) {
+                  console.error('Error submitting form', error);
+              }
+          }
+      };
     return (
       <main className="bg-[#EFE4F4] min-h-screen flex items-center justify-center">
         <div className="mt-6">
@@ -63,27 +137,50 @@ export const ContactForm = () => {
               </ul>
             </div>
           </div>
-          <form className="ml-auo space-y-4">
+          <form onSubmit={handleSubmit} className="ml-auo space-y-4">
             <div className="relative">
-              <input type='text' placeholder='Name'
+              <input 
+                type='text' 
+                name = "name"
+                value = {formData.name}
+                placeholder='Name'
+                onChange={handleChange}
                 className="w-full text-gray-800 rounded-md py-2.5 px-4 pl-10 border text-sm outline-none focus:border-blue-500" />
                 <svg className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z"/>
                 </svg>
+                {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
             </div>
             <div className="relative">
-              <input type='email' placeholder='Email'
+              <input 
+              type='email' 
+              name='email'
+              value={formData.email}
+              onChange={handleChange}
+              placeholder='Email'
                 className="w-full text-gray-800 rounded-md py-2.5 px-4 pl-10 border text-sm outline-none focus:border-blue-500" />
                 <svg className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
                   <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"/>
                   <path d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"/>
                 </svg>
+                {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
             </div>
-            <input type='text' placeholder='Subject'
+            <input 
+            type='text' 
+            name='subject'
+            value={formData.subject}
+            onChange={handleChange}
+            placeholder='Subject'
               className="w-full text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-none focus:border-blue-500" />
-            <textarea placeholder='Message'
+            {errors.subject && <p className="text-red-500 text-sm">{errors.subject}</p>}
+            <textarea 
+              name='message'
+              value={formData.message}
+              onChange={handleChange}
+            placeholder='Message'
               className="w-full text-gray-800 rounded-md px-4 border text-sm pt-2.5 outline-none focus:border-blue-500"></textarea>
-            <button type='button'
+            {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
+            <button type='submit'
               className="text-white bg-purple-400 hover:bg-blue-400 rounded-md text-sm px-4 py-2.5 w-full !mt-6">Send</button>
           </form>
         </div>
