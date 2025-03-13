@@ -13,7 +13,7 @@ export const Team = () => {
         {
             avatar: Akansha,
             name: "Akanksha Dasmohapatra",
-            title: "Product Lead"
+            title: "Chief Product Officer"
         },
         {
             avatar: Ajay,
@@ -22,8 +22,8 @@ export const Team = () => {
         },
         {
             avatar: Naveen,
-            name: "Naveen ",
-            title: "Intern"
+            name: "Naveen",
+            title: "Intern - Electronics Engineering"
         },
     ]
     return (                                               
