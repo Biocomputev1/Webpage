@@ -108,12 +108,13 @@ export const Hero = () => {
                     </div>
                 </button>
             </div>
+            {/* Image on the Right */}
             <div className="w-full md:w-1/2 mt-6 md:mt-0 flex justify-center">
                 <div className="w-full max-w-md">
                     <Image 
                     src={EarlyAccess}
                     alt="Early Access"
-                    className="w-[600px] h-[400px] rounded-lg shadow-xl shadow-purple-700/50"
+                    className="mx-10 w-[600px] h-[400px] rounded-lg shadow-xl shadow-purple-700/50"
                     />
                 </div>
             </div>
