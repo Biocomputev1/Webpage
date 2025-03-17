@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 
+
 const SignupForm: React.FC = () => {
     const [formData, setFormData] = useState({
         name: '',
@@ -9,71 +10,45 @@ const SignupForm: React.FC = () => {
         message: ''
     });
 
-    const [errors, setErrors] = useState({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-    });
+    const [errors, setErrors] = useState<{[key: string]: string}>({});
+    const [success, setSuccess] = useState(false);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
+        setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const validateForm = () => {
-        let valid = true;
-        const errors = { name: '', email: '', subject: '', message: '' };
-
-        if (!formData.name.trim()) {
-            errors.name = 'Name is required';
-            valid = false;
-        }
-        if (!formData.email.trim()) {
-            errors.email = 'Email is required';
-            valid = false;
-        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-            errors.email = 'Invalid email address';
-            valid = false;
-        }
-        if (!formData.subject.trim()) {
-            errors.subject = 'Subject is required';
-            valid = false;
-        }
-        if (!formData.message.trim()) {
-            errors.message = 'Message is required';
-            valid = false;
-        }
-
-        setErrors(errors);
-        return valid;
+    const validate = () => {
+        const errors: any = {};
+        if(!formData.name) errors.name = 'Name is required';
+        if(!formData.email) errors.email = 'Email is required';
+        if(!formData.subject) errors.subject = 'Subject is required';
+        if(!formData.message) errors.message = 'Message is required';
+        return errors
     };
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (validateForm()) {
-            try {
-                const response = await fetch('https://api.example.com/send-email', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        to: 'chief@biocomputeinc.com',
-                        subject: `New Message from ${formData.name}`,
-                        text: JSON.stringify(formData, null, 2)
-                    })
-                });
-
-                if (response.ok) {
-                    console.log('Form submitted successfully');
-                    alert('Your message has been sent!');
-                    setFormData({ name: '', email: '', subject: '', message: '' });
-                } else {
-                    console.error('Form submission failed');
-                }
-            } catch (error) {
-                console.error('Error submitting form', error);
-            }
+        const validationErrors = validate();
+        if(Object.keys(validationErrors).length > 0){
+            return setErrors(validationErrors);
         }
+        setErrors({});
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify({
+              access_key: "3a5649f6-b025-413b-9d54-fd2029961e6a",
+              ...formData,
+            }),
+          });
+          const result = await response.json();
+          if (result.success) {
+            setSuccess(true);
+            setFormData({ name: '', email: '', subject: '', message: '' });
+          }
     };
 
     return (
@@ -83,6 +58,7 @@ const SignupForm: React.FC = () => {
                 <p className="text-gray-500 text-center mb-6">We would love to have you on board</p>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
+                    {success && <div className='text-green-500 text-xl'>Thankyou for Signing-up!</div>}
                     <div>
                         <input
                             type="text"
