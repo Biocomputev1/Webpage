@@ -19,7 +19,7 @@ export const SubstackPosts = () => {
           {/* Right Card */}
           <div className="mr-4 border-2 border-neutral-400 bg-white rounded-xl overflow-hidden shadow-md transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-lg">
             <Link href = "https://www.biocomputeinc.com/p/a-primer-on-dna-no-pun-intended?utm_campaign=post&utm_medium=web">
-            <Image src={blogimage2} alt="DNA Double Helix" className='border-2 rounded-xl border-neutral-200'/>
+            <Image src={blogimage2} alt="DNA Double Helix" className='border-2 rounded-xl border-neutral-300'/>
             <h2 className="text-xl font-inter mt-6 mb-2 mx-10">A Primer on DNA (no pun intended)</h2>
             <p className="text-gray-600 mb-8 mx-10">It&apos;s been a week since we announced</p>
             <p className = "text-gray-600 -mt-8 mb-4 mx-10">BioCompute to the world</p>
