@@ -1,5 +1,6 @@
 'use client'
 import React, { useState } from 'react';
+import Alert from '@mui/material/Alert';
 
 export type FormData = {
   name: string;
@@ -111,7 +112,10 @@ export const ContactForm = () => {
             </div>
           </div>
           <form onSubmit={handleSubmit} className="ml-auo space-y-4">
-            {success && <div className="text-green-500 text-xl">We&apos;ll get back to you soon</div>}
+            {success && 
+              <Alert severity="success">
+              We&apos;ve received your message! We&apos;ll get back to you soon.
+              </Alert>}
             <div className="relative">
               <input 
                 type='text' 

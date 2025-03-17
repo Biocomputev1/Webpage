@@ -9,7 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@heroui/react": "^2.7.5",
+    "@mui/material": "^6.4.7",
     "@types/nodemailer": "^6.4.17",
     "alpinejs": "^3.14.8",
     "mini-svg-data-uri": "^1.4.4",
