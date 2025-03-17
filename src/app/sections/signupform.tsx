@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from 'react';
 import Alert from '@mui/material/Alert';
+import { AlertTitle } from '@mui/material';
 
 
 const SignupForm: React.FC = () => {
@@ -61,6 +62,7 @@ const SignupForm: React.FC = () => {
                 <form onSubmit={handleSubmit} className="space-y-4">
                     {success && 
                         <Alert severity="success">
+                            <AlertTitle>Success</AlertTitle>
                             Thank you for signing up! We will get back to you soon.
                         </Alert>
                     }
