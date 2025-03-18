@@ -44,7 +44,7 @@ export const Hero = () => {
         <OurPartners/>
         <section className="bg-white">
             <h1 className="text-3xl text-center font-bold font-inter">Why DNA Storage</h1>
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-3 py-10 justify-items-center">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-3 py-10 sm:grid-cols-1 justify-items-center">
                 <div className="w-[305px] h-[430px] bg-white border-purple-500 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 shadow-purple-500 transition delay-50 duration-500 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-lg">
                     <Image src={Card1} alt="Card1" />
                     <div className="p-5">
@@ -109,7 +109,7 @@ export const Hero = () => {
                 </button>
             </div>
             {/* Image on the Right */}
-            <div className="w-full md:w-1/2 mt-6 md:mt-0 flex justify-center">
+            <div className="w-full md:w-auto mt-6 md:mt-0 flex justify-center">
                 <div className="w-full max-w-md">
                     <Image 
                     src={EarlyAccess}
