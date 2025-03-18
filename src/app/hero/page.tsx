@@ -36,7 +36,7 @@ export const Hero = () => {
                     }}
                     className= "text-2xl px-4 md:text-4xl lg:text-5xl font-bold text-neutral-700 dark:text-white max-w-4xl leading-relaxed lg:leading-snug text-center mx-auto text-large text-bold mt-[-5rem] lg:mt-[-10rem] font-inter">
                     The Future of {" "}
-                    <Highlight className="text-black dark:text-white">Data Storage is DNA </Highlight>
+                    <Highlight className="text-black dark:text-white">Data Storage is DNA</Highlight>
                 </motion.h1>
             </HeroHighlight>
         </div>              
@@ -68,7 +68,7 @@ export const Hero = () => {
                 </div>
             </div>
         </section>
-        <div className="bg-[#EFE4F4] p-8 flex flex-col md:flex-row items-center gap-8 justify-between">
+        <div className="bg-[#EFE4F4] p-8 flex flex-col md:flex-row items-center gap-8 ">
             <div className="md:w-1/2 mx-10 w-full">
                 <h2 className="text-3xl font-bold text-gray-900 font-inter">
                 Get Early Access to DNA Data Storage
@@ -109,12 +109,12 @@ export const Hero = () => {
                 </button>
             </div>
             {/* Image on the Right */}
-            <div className="w-full md:w-auto mt-6 md:mt-0 flex justify-center">
+            <div className="w-full mt-6 md:mt-0 flex justify-center">
                 <div className="w-full max-w-md">
                     <Image 
                     src={EarlyAccess}
                     alt="Early Access"
-                    className="mx-10 w-[600px] h-[400px] rounded-lg shadow-xl shadow-purple-700/50"
+                    className="w-[1000px] h-[400px] rounded-lg shadow-xl shadow-purple-700/50"
                     />
                 </div>
             </div>
