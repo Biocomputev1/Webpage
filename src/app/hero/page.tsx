@@ -39,6 +39,7 @@ export const Hero = () => {
                     <Highlight className="text-black dark:text-white">Data Storage is DNA</Highlight>
                 </motion.h1>
             </HeroHighlight>
+            
         </div>              
         </section>
         <OurPartners/>

@@ -11,7 +11,7 @@ export const Header = () => {
   }
 
   return (
-    <nav className="w-full h-35 shadow-xl bg-purple-200">
+    <nav className="w-full h-35 shadow-lg bg-purple-200">
       <div className="flex justify-between items-center h-full w-full px-4 2xl:px-16">
         <Link href = "/">
           <Image src={Logo}
