@@ -14,8 +14,8 @@ import {motion} from "framer-motion";
 export const OurPartners = () =>{
     return(
         <>
-            <h1 className="text-4xl text-center font-bold font-inter pb-20">We&apos;re backed by</h1>
-            <div className="w-full mb-20 inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
+            <h1 className="-mt-25 text-4xl text-center font-bold font-inter pb-20">We&apos;re backed by</h1>
+            <div className="w-full mb-15 inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
                 <motion.div
                 className="flex gap-14 flex-none pr-14"
                 animate = {{

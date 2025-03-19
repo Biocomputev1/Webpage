@@ -16,14 +16,14 @@ export const Header = () => {
         <Link href = "/">
           <Image src={Logo}
           alt = "Logo"
-          width = "205"
+          width = "300"
           height= "75"
           className="cursor-pointer"
           />
         </Link>
         <div className="hidden sm:flex">
           <ul className="hidden sm:flex">
-            <Link href = "/">
+            <Link href = "https://www.biocomputeinc.com/about">
               <li className="ml-10 uppercase hover:border-b text-lg">About us</li>
             </Link>
             <Link href = "/team">
@@ -65,7 +65,7 @@ export const Header = () => {
                 Home
               </li>
             </Link>
-            <Link href = "/">
+            <Link href = "https://www.biocomputeinc.com/about">
               <li onClick={()=>setMenuOpen(false)}
                 className="py-4 cursor-pointer uppercase"
               >
