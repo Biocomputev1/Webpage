@@ -1,60 +1,94 @@
 "use client";
-import Logo from "@/app/assets/logo.svg";
-import BioComputeLogo from "@/app/assets/BioComputeLogo.svg";
 import Image from "next/image";
+import Logo from "@/app/assets/FullLogoBGremoved.png"
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
 export const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const router = useRouter();
-  const handleClick = () => {
-    router.push("/contact");
-  };
+  const [menuOpen, setMenuOpen] = useState(false)
+  const handleNav = () =>{
+    setMenuOpen(!menuOpen);
+  }
+
   return (
-  <nav className="flex items-center justify-between flex-wrap p-6 w-full bg-[#EFE4F4] h-[150px]">
-    <div className="flex items-center flex-shrink-0 text-white mr-6 lg:mr-72">
-      <Image src={Logo} alt="Logo" width={50} height={50} />
-      <Image src={BioComputeLogo} alt="BioCompute Logo" width={280} height={50} />
-    </div>
-    <div className="block lg:hidden">
-       <button
-         onClick={() => setIsOpen(!isOpen)}
-         className="flex items-center px-3 py-2 rounded text-black-500 hover:text-black-400"
-        >
-        <svg
-           className={`fill-current h-7 w-7 ${isOpen ? "hidden" : "block"}`}
-           viewBox="0 0 20 20"
-           xmlns="http://www.w3.org/2000/svg"
-          >
-          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-        </svg>
-        <svg
-           className={`fill-current h-7 w-7 ${isOpen ? "block" : "hidden"}`}
-           viewBox="0 0 20 20"
-           xmlns="http://www.w3.org/2000/svg"
-          >
-          <path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z" />
-        </svg>
-       </button>
-      </div>
-      <div
-        className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${isOpen ? "block" : "hidden"}`}
-      >
-      <div className="text-sm lg:flex-grow flex justify-end gap-20 mr-20">
-        <Link href = "https://www.biocomputeinc.com/about">
-          <p className="text-black text-lg font-medium">About</p>
+    <nav className="w-full h-35 shadow-xl bg-purple-200">
+      <div className="flex justify-between items-center h-full w-full px-4 2xl:px-16">
+        <Link href = "/">
+          <Image src={Logo}
+          alt = "Logo"
+          width = "205"
+          height= "75"
+          className="cursor-pointer"
+          />
         </Link>
-        <Link href = "/team">
-          <p className="text-black text-lg font-medium">Our Team</p>
+        <div className="hidden sm:flex">
+          <ul className="hidden sm:flex">
+            <Link href = "/">
+              <li className="ml-10 uppercase hover:border-b text-lg">About us</li>
+            </Link>
+            <Link href = "/team">
+              <li className="ml-10 uppercase hover:border-b text-lg">Our team</li>
+            </Link>
+            <Link href = "/contact">
+              <li className="ml-10 uppercase hover:border-b text-lg">Contact us</li>
+            </Link>
+          </ul>
+        </div>
+        <div onClick={handleNav} className="sm:hidden cursor-pointer pl-24">
+          <AiOutlineMenu size={25}/>
+        </div>
+      </div>
+      <div className={
+        menuOpen?"fixed left-0 top-0 w-[65%] sm:hidden h-[33%] bg-[#EFE4F4] p-10 ease-in duration-500 rounded-xl shadow-lg"
+        : "fixed left-[-100%] top-0 p-10 ease-in duration-500"
+      }>
+        <div className="flex w-full items-center justify-end">
+        <Link href = "/">
+          <Image src={Logo}
+          alt = "Logo"
+          width = "180"
+          height= "75"
+          className="cursor-pointer"
+          />
         </Link>
+          <div onClick={handleNav} className="cursor-pointer ml-10">
+            <AiOutlineClose size={25}/>
+          </div>
+        </div>
+        
+        <div className="flex-col py-4">
+          <ul>
+            <Link href = "/">
+              <li onClick={()=>setMenuOpen(false)}
+                className="py-4 cursor-pointer uppercase"
+              >
+                Home
+              </li>
+            </Link>
+            <Link href = "/">
+              <li onClick={()=>setMenuOpen(false)}
+                className="py-4 cursor-pointer uppercase"
+              >
+                About us
+              </li>
+            </Link>
+            <Link href = "/team">
+              <li onClick={()=>setMenuOpen(false)}
+                className="py-4 cursor-pointer uppercase"
+              >
+                Our Team
+              </li>
+            </Link>
+            <Link href = "/contact">
+              <li onClick={()=>setMenuOpen(false)}
+                className="py-4 cursor-pointer uppercase"
+              >
+                Contact
+              </li>
+            </Link>
+          </ul>
+        </div>
       </div>
-      <div>
-        <button onClick={handleClick} type = "button"className="px-4 py-1 font-medium text-xl text-black backdrop-blur-sm border border-black rounded-md hover:shadow-[0px_0px_4px_4px_rgba(0,0,0,0.1)] bg-white/[0.2] text-sm transition duration-200">
-          Contact us
-        </button>
-      </div>
-    </div>
-  </nav>
+    </nav>
   );
 };

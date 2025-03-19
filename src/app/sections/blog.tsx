@@ -9,7 +9,7 @@ export const SubstackPosts = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Left Card */}
-          <div className="ml-4 border-2 border-neutral-400 rounded-xl w-auto  h-auto overflow-hidden shadow-md transition delay-50 duration-500 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-lg">
+          <div className=" border-2 border-neutral-400 rounded-xl w-auto  h-auto overflow-hidden shadow-md transition delay-50 duration-500 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-lg">
             <Link href = "https://www.biocomputeinc.com/p/coming-soon?utm_campaign=post&utm_medium=web">
             <Image src = {blogimage1} alt="BioCompute Logo" className="border-2 rounded-xl border-neutral-300"/>
             <h2 className="text-xl font-inter mt-6 mb-2 mx-10">Hello World, We Are BioCompute!</h2>
@@ -17,7 +17,7 @@ export const SubstackPosts = () => {
             </Link>
           </div>
           {/* Right Card */}
-          <div className="sm:ml-4 sm:-mr-1 mr-4 border-2 border-neutral-400 bg-white rounded-xl w-auto h-auto overflow-hidden shadow-md transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-lg">
+          <div className="border-2 border-neutral-400 bg-white rounded-xl w-auto h-auto overflow-hidden shadow-md transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-lg">
             <Link href = "https://www.biocomputeinc.com/p/a-primer-on-dna-no-pun-intended?utm_campaign=post&utm_medium=web">
             <Image src={blogimage2} alt="DNA Double Helix" className='border-2 rounded-xl border-neutral-300'/>
             <h2 className="text-xl font-inter mt-6 mb-2 mx-10">A Primer on DNA (no pun intended)</h2>

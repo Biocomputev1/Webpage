@@ -17,7 +17,7 @@ export const Hero = () => {
     };
     return (
     <>
-    <div className="w-full">
+    <div className="right-0">
         <section className="dark:bg-gray-900">
         <div className="mr-auto place-self-center -mb-60">
             <HeroHighlight>
@@ -120,7 +120,7 @@ export const Hero = () => {
             </div>
         </div>
         <SubstackPosts/>
-        </div>
+    </div>
     </>
     );
 }
