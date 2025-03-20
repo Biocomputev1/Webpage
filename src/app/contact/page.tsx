@@ -1,10 +1,9 @@
 'use client'
 import {ContactForm} from "@/app/sections/contactfrom"
-export const Contact = () => {
+export default function Contact(){
     return(
         <>
             <ContactForm/>
         </>
     );
 };    
-export default Contact;
