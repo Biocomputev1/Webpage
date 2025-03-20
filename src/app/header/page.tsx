@@ -39,7 +39,7 @@ export const Header = () => {
         </div>
       </div>
       <div className={
-        menuOpen?"fixed left-0 top-0 w-[65%] sm:hidden h-[33%] bg-[#EFE4F4] p-10 ease-in duration-500 rounded-xl shadow-lg"
+        menuOpen?"fixed left-0 top-0 w-[68%] sm:hidden h-[33%] bg-[#EFE4F4] p-10 ease-in duration-500 rounded-xl shadow-lg"
         : "fixed left-[-100%] top-0 p-10 ease-in duration-500"
       }>
         <div className="flex w-full items-center justify-end">
