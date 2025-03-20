@@ -9,9 +9,9 @@ import EarlyAccess from "@/app/assets/earlyAccessImage.png";
 import Pointer from "@/app/assets/pointer image.png";
 import { Compare } from "../sections/compare";
 import { OurPartners } from "@/app/sections/ourpartners";
-import { SubstackPosts } from "@/app/sections/blog";
+import  SubstackPosts  from "@/app/sections/blog";
 import { useRouter } from "next/navigation";
-export const Hero = () => {
+export default function Hero () {
     const router = useRouter();
     const handleClick = () => {
       router.push("/signup");

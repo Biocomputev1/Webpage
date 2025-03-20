@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import blogimage1 from '@/app/assets/blogimage1.png';
 import blogimage2 from '@/app/assets/ourstoryimage.png'
-export const SubstackPosts = () => {
+export default function SubstackPosts ()  {
     return (
         <section className="container mx-auto px-4 py-16">
         <h1 className="text-4xl md:text-4xl font-inter font-bold text-center mb-16">Our Story</h1>

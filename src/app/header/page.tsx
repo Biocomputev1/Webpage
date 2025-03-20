@@ -4,7 +4,7 @@ import Logo from "@/app/assets/FullLogoBGremoved.png"
 import Link from "next/link";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import { useState } from "react";
-export const Header = () => {
+export default function Header (){
   const [menuOpen, setMenuOpen] = useState(false)
   const handleNav = () =>{
     setMenuOpen(!menuOpen);

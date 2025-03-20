@@ -10,7 +10,7 @@ export type FormData = {
   message: string;
 };
 
-export const ContactForm = () => {
+export default function ContactForm (){
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
