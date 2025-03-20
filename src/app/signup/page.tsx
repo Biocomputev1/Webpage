@@ -1,9 +1,8 @@
 import SignupForm from "@/app/sections/signupform";
-export const SignUp = () => {
+export default function SignUp () {
     return(
         <>
             <SignupForm/>
         </>
     );
 };    
-export default SignUp;
