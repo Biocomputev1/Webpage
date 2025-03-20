@@ -20,6 +20,7 @@ const SignupForm: React.FC = () => {
     };
 
     const validate = () => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const errors: any = {};
         if(!formData.name) errors.name = 'Name is required';
         if(!formData.email) errors.email = 'Email is required';
