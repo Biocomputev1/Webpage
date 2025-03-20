@@ -11,7 +11,7 @@ export default function Header (){
   }
 
   return (
-    <nav className="w-full h-35 shadow-lg bg-purple-200">
+    <nav className="w-full h-40 shadow-lg bg-purple-200">
       <div className="flex justify-between items-center h-full w-full px-4 2xl:px-16">
         <Link href = "/">
           <Image src={Logo}
@@ -39,50 +39,41 @@ export default function Header (){
         </div>
       </div>
       <div className={
-        menuOpen?"fixed left-0 top-0 w-[68%] sm:hidden h-[33%] bg-[#EFE4F4] p-10 ease-in duration-500 rounded-xl shadow-lg"
+        menuOpen?"fixed left-0 top-0 w-[68%] sm:hidden md:h-[80%] bg-[#EFE4F4] p-10 ease-in duration-500 rounded-xl shadow-lg"
         : "fixed left-[-100%] top-0 p-10 ease-in duration-500"
       }>
         <div className="flex w-full items-center justify-end">
         <Link href = "/">
           <Image src={Logo}
           alt = "Logo"
-          width = "180"
+          width = "150"
           height= "75"
           className="cursor-pointer"
-          />
+        />
         </Link>
-          <div onClick={handleNav} className="cursor-pointer ml-10">
+          <div onClick={handleNav} className="cursor-pointer ml-8">
             <AiOutlineClose size={25}/>
           </div>
         </div>
-        
-        <div className="flex-col py-4">
-          <ul>
-            <Link href = "/">
-              <li onClick={()=>setMenuOpen(false)}
-                className="py-4 cursor-pointer uppercase"
-              >
+        <div className="flex-col py-2">
+          <ul className="cursor-pointer uppercase">
+            <Link  href="/" onClick={() => setMenuOpen(false)}>
+              <li>
                 Home
               </li>
             </Link>
-            <Link href = "https://www.biocomputeinc.com/about">
-              <li onClick={()=>setMenuOpen(false)}
-                className="py-4 cursor-pointer uppercase"
-              >
+            <Link href="https://www.biocomputeinc.com/about" onClick={() => setMenuOpen(false)}>
+              <li className="py-1">
                 About us
               </li>
             </Link>
-            <Link href = "/team">
-              <li onClick={()=>setMenuOpen(false)}
-                className="py-4 cursor-pointer uppercase"
-              >
+            <Link href="/team" onClick={() => setMenuOpen(false)}>
+              <li className="">
                 Our Team
               </li>
             </Link>
-            <Link href = "/contact">
-              <li onClick={()=>setMenuOpen(false)}
-                className="py-4 cursor-pointer uppercase"
-              >
+            <Link href="/contact" onClick={() => setMenuOpen(false)}>
+              <li className="py-1">
                 Contact
               </li>
             </Link>

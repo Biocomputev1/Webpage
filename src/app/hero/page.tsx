@@ -20,38 +20,52 @@ export default function Hero () {
     <>
     <div className="right-0">
         <section className="dark:bg-gray-900">
-            <div className="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
+            <div className="grid max-w-screen-xl px-4 py-4 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
                 <div className="mr-auto place-self-center lg:col-span-7">
                     <HeroHighlight>
                         <motion.h1
                             initial={{
-                            opacity: 0,
-                            y: 20,
+                                opacity: 0,
+                                y: 20,
                             }}
                             animate={{
-                            opacity: 1,
-                            y: [20, -5, 0],
+                                opacity: 1,
+                                y: [20, -5, 0],
                             }}
                             transition={{
-                            duration: 0.5,
-                            ease: [0.4, 0.0, 0.2, 1],
+                                duration: 0.5,
+                                ease: [0.4, 0.0, 0.2, 1],
                             }}
-                            className= "text-2xl px-4 md:text-4xl lg:text-5xl font-bold text-neutral-700 dark:text-white max-w-4xl leading-relaxed lg:leading-snug text-center mx-auto text-large text-bold mt-[-5rem] lg:mt-[-10rem] font-inter">
-                            The Future of {" "} <br/>
-                            <Highlight className="text-black dark:text-white">Data Storage is DNA</Highlight>
+                            className="relative text-2xl px-4 md:text-4xl lg:text-5xl font-bold text-neutral-700 dark:text-white max-w-4xl leading-relaxed lg:leading-snug text-center mx-auto text-large text-bold font-inter"
+                        >
+                            The Future of <br />
+                            <Highlight className="text-black dark:text-white">
+                                Data Storage is DNA
+                            </Highlight>
                         </motion.h1>
                     </HeroHighlight>
+                    
                 </div>
                 <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
                     <Compare
-                    firstImage="https://assets.aceternity.com/code-problem.png"
-                    secondImage="https://img.freepik.com/free-photo/grunge-black-concrete-textured-background_53876-124541.jpg?semt=ais_hybrid"
-                    firstImageClassName="object-cover object-left-top"
-                    secondImageClassname="object-cover object-left-top"
-                    className="h-[150px] w-[400px] md:h-[500px] md:w-[600px]"
-                    slideMode="hover"
+                        firstImage="https://assets.aceternity.com/code-problem.png"
+                        secondImage="https://img.freepik.com/free-photo/grunge-black-concrete-textured-background_53876-124541.jpg?semt=ais_hybrid"
+                        firstImageClassName="object-cover object-left-top"
+                        secondImageClassname="object-cover object-left-top"
+                        className="h-[300px] w-[400px] md:h-[500px] md:w-[600px] rounded-xl"
+                        slideMode="hover"
                     />
-                </div>                
+                </div>
+                <div className="flex lg:hidden justify-end -mt-75 mb-10 p-20">  
+                    <Compare
+                        firstImage="https://assets.aceternity.com/code-problem.png"
+                        secondImage="https://img.freepik.com/free-photo/grunge-black-concrete-textured-background_53876-124541.jpg?semt=ais_hybrid"
+                        firstImageClassName="object-cover object-left-top"
+                        secondImageClassname="object-cover object-left-top"
+                        className="h-[250px] w-[300px] sm:h-[400px] sm:w-[400px] rounded-xl"
+                        slideMode="hover"
+                    />
+                </div>
             </div>
         </section>
         <OurPartners/>
