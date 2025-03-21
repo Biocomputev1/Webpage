@@ -22,7 +22,7 @@ export default function Hero () {
         <section className="dark:bg-gray-900">
             <div className="grid max-w-screen-xl px-4 py-4 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
                 <div className="place-self-center lg:col-span-7">
-                    <HeroHighlight>
+                    <HeroHighlight className="-mt-40">
                         <motion.h1
                             initial={{
                                 opacity: 0,
