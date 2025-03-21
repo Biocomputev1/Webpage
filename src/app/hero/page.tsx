@@ -21,7 +21,7 @@ export default function Hero () {
     <div className="right-0">
         <section className="dark:bg-gray-900">
             <div className="grid max-w-screen-xl px-4 py-4 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
-                <div className="mr-auto place-self-center lg:col-span-7">
+                <div className="place-self-center lg:col-span-7">
                     <HeroHighlight>
                         <motion.h1
                             initial={{
@@ -43,8 +43,7 @@ export default function Hero () {
                                 Data Storage is DNA
                             </Highlight>
                         </motion.h1>
-                    </HeroHighlight>
-                    
+                    </HeroHighlight>    
                 </div>
                 <div className="hidden lg:mt-0 lg:col-span-5 lg:flex">
                     <Compare
@@ -52,17 +51,17 @@ export default function Hero () {
                         secondImage="https://img.freepik.com/free-photo/grunge-black-concrete-textured-background_53876-124541.jpg?semt=ais_hybrid"
                         firstImageClassName="object-cover object-left-top"
                         secondImageClassname="object-cover object-left-top"
-                        className="h-[300px] w-[400px] md:h-[500px] md:w-[600px] rounded-xl"
+                        className="h-[300px] w-[400px] md:h-[500px] md:w-[700px] rounded-xl"
                         slideMode="hover"
                     />
                 </div>
-                <div className="flex lg:hidden justify-end -mt-75 mb-10 p-20">  
+                <div className="flex lg:hidden justify-center -mt-75 mb-20 py-10 mr-screen md:py-20">  
                     <Compare
                         firstImage="https://assets.aceternity.com/code-problem.png"
                         secondImage="https://img.freepik.com/free-photo/grunge-black-concrete-textured-background_53876-124541.jpg?semt=ais_hybrid"
                         firstImageClassName="object-cover object-left-top"
                         secondImageClassname="object-cover object-left-top"
-                        className="h-[250px] w-[300px] sm:h-[400px] sm:w-[400px] rounded-xl"
+                        className="h-[250px] w-[300px] sm:h-[400px] sm:w-[500px] rounded-xl"
                         slideMode="hover"
                     />
                 </div>
