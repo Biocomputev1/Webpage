@@ -82,7 +82,7 @@ export default function Hero () {
                     <Image src={Card2} alt="Card1" />
                     <div className="p-5">
                         <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Forever Archive</h5>
-                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Stable data sotrage for thousand years</p>
+                        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">Stable data storage for thousand years</p>
                     </div>
                 </div>
                 <div className="w-[305px] h-[430px] bg-white border-purple-500 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 shadow-purple-500 transition delay-50 duration-500 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-lg">
@@ -147,6 +147,11 @@ export default function Hero () {
             
         </div>
         <SubstackPosts/>
+        <footer className="bg-white  m-4 dark:bg-gray-800">
+            <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+                <a href="https://www.biocomputeinc.com/" className="hover:underline"> @Biocomputeinc.com™</a>
+            </span>
+        </footer>
     </div>
     </>
     );
