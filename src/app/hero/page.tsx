@@ -22,7 +22,7 @@ export default function Hero () {
         <section className="dark:bg-gray-900">
             <div className="grid max-w-screen-xl px-4 py-4 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
                 <div className="place-self-center lg:col-span-7">
-                    <HeroHighlight className="-mt-40">
+                    <HeroHighlight className="-mt-70">
                         <motion.h1
                             initial={{
                                 opacity: 0,
@@ -55,7 +55,7 @@ export default function Hero () {
                         slideMode="hover"
                     />
                 </div>
-                <div className="flex lg:hidden justify-center -mt-75 mb-20 py-10 mr-screen md:py-20">  
+                <div className="flex lg:hidden justify-center -mt-95 mb-20 py-10 mr-screen md:py-20">  
                     <Compare
                         firstImage="https://assets.aceternity.com/code-problem.png"
                         secondImage="https://img.freepik.com/free-photo/grunge-black-concrete-textured-background_53876-124541.jpg?semt=ais_hybrid"
