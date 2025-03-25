@@ -8,7 +8,8 @@ const SignupForm: React.FC = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        subject: '',
+        linkedin: '',
+        cname: '',
         message: ''
     });
 
@@ -24,7 +25,8 @@ const SignupForm: React.FC = () => {
         const errors: any = {};
         if(!formData.name) errors.name = 'Name is required';
         if(!formData.email) errors.email = 'Email is required';
-        if(!formData.subject) errors.subject = 'Subject is required';
+        if(!formData.linkedin) errors.linkedin = 'Linkedin URL is required'
+        if(!formData.cname) errors.cname = 'Company name is required';
         if(!formData.message) errors.message = 'Message is required';
         return errors
     };
@@ -50,7 +52,7 @@ const SignupForm: React.FC = () => {
           const result = await response.json();
           if (result.success) {
             setSuccess(true);
-            setFormData({ name: '', email: '', subject: '', message: '' });
+            setFormData({ name: '', email: '', linkedin: '', cname: '', message: ''});
           }
     };
 
@@ -93,14 +95,26 @@ const SignupForm: React.FC = () => {
 
                     <div>
                         <input
-                            type="text"
-                            name="subject"
-                            placeholder="Subject"
-                            value={formData.subject}
+                            type="url"
+                            name="linkedin"
+                            placeholder="Linkedin"
+                            value={formData.linkedin}
                             onChange={handleChange}
                             className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300"
                         />
-                        {errors.subject && <p className="text-red-500 text-sm">{errors.subject}</p>}
+                        {errors.linkedin && <p className="text-red-500 text-sm">{errors.linkedin}</p>}
+                    </div>
+
+                    <div>
+                        <input
+                            type="text"
+                            name="cname"
+                            placeholder="Company name"
+                            value={formData.cname}
+                            onChange={handleChange}
+                            className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300"
+                        />
+                        {errors.cname && <p className="text-red-500 text-sm">{errors.cname}</p>}
                     </div>
 
                     <div>
@@ -119,18 +133,6 @@ const SignupForm: React.FC = () => {
                     </button>
                 </form>
 
-                {/* Social Icons */}
-                <div className="flex justify-center mt-6 space-x-4">
-                    <a href="#" className="text-gray-600 hover:text-blue-500">
-                        <i className="fab fa-facebook-f text-xl"></i>
-                    </a>
-                    <a href="#" className="text-gray-600 hover:text-blue-500">
-                        <i className="fab fa-linkedin-in text-xl"></i>
-                    </a>
-                    <a href="#" className="text-gray-600 hover:text-pink-500">
-                        <i className="fab fa-instagram text-xl"></i>
-                    </a>
-                </div>
             </div>
         </div>
     );
