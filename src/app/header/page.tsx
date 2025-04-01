@@ -23,7 +23,7 @@ export default function Header (){
         </Link>
         <div className="hidden sm:flex">
           <ul className="hidden sm:flex">
-            <Link href = "https://www.biocomputeinc.com/about">
+            <Link href = "https://blog.biocomputeinc.com/about">
               <li className="ml-10 uppercase hover:border-b text-lg">About us</li>
             </Link>
             <Link href = "/team">
@@ -62,7 +62,7 @@ export default function Header (){
                 Home
               </li>
             </Link>
-            <Link href="https://www.biocomputeinc.com/about" onClick={() => setMenuOpen(false)}>
+            <Link href="https://blog.biocomputeinc.com/about" onClick={() => setMenuOpen(false)}>
               <li className="py-1">
                 About us
               </li>
