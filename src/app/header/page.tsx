@@ -24,13 +24,13 @@ export default function Header (){
         <div className="hidden sm:flex">
           <ul className="hidden sm:flex">
             <Link href = "https://blog.biocomputeinc.com/about">
-              <li className="ml-10 uppercase hover:border-b text-lg">About us</li>
+              <li className="ml-10 uppercase hover:border-b border-black text-lg">About us</li>
             </Link>
             <Link href = "/team">
-              <li className="ml-10 uppercase hover:border-b text-lg">Our team</li>
+              <li className="ml-10 uppercase hover:border-b border-black text-lg">Our team</li>
             </Link>
             <Link href = "/contact">
-              <li className="ml-10 uppercase hover:border-b text-lg">Contact us</li>
+              <li className="ml-10 uppercase hover:border-b border-black text-lg">Contact us</li>
             </Link>
           </ul>
         </div>
