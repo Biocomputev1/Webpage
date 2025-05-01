@@ -2,7 +2,7 @@ import Image from "next/image";
 import Anagha from "@/app/assets/Anaghaupdated.jpeg"
 import Akansha from "@/app/assets/Akansha.jpg"
 import Ajay from "@/app/assets/Ajay.jpg"
-import Naveen from "@/app/assets/Naveen.jpg"
+import Naveen from "@/app/assets/Naveen.png"
 export default function Team() {
     const team = [
         {
@@ -23,7 +23,7 @@ export default function Team() {
         {
             avatar: Naveen,
             name: "Naveen",
-            title: "Intern - Electronics Engineering"
+            title: "Electronics Engineer"
         },
     ]
     return (                                               
