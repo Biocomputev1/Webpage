@@ -29,6 +29,9 @@ export default function Header (){
             <Link href = "/team">
               <li className="ml-10  transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-100 text-lg font-sans">Our Team</li>
             </Link>
+            <Link href = '/faq'>
+              <li className="ml-10  transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-100 text-lg font-sans">FAQ</li>
+            </Link>
             <Link href = "/contact">
               <li className="ml-10  transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-100 text-lg font-sans">Contact Us</li>
             </Link>
@@ -63,17 +66,22 @@ export default function Header (){
               </li>
             </Link>
             <Link href="https://blog.biocomputeinc.com/about" onClick={() => setMenuOpen(false)}>
-              <li className="py-1">
+              <li className="py-1 font-sans">
                 About us
               </li>
             </Link>
             <Link href="/team" onClick={() => setMenuOpen(false)}>
-              <li className="">
+              <li className="font-sans">
                 Our Team
               </li>
             </Link>
+            <Link href="/faq" onClick={() => setMenuOpen(false)}>
+              <li className="font-sans">
+                FAQ
+              </li>
+            </Link>
             <Link href="/contact" onClick={() => setMenuOpen(false)}>
-              <li className="py-1">
+              <li className="py-1 font-sans">
                 Contact
               </li>
             </Link>
