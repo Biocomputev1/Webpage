@@ -18,19 +18,19 @@ export default function Header (){
           alt = "Logo"
           width = "300"
           height= "75"
-          className="cursor-pointer"
+          className="cursor-pointer transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-100"
           />
         </Link>
         <div className="hidden sm:flex">
           <ul className="hidden sm:flex">
             <Link href = "https://blog.biocomputeinc.com/about">
-              <li className="ml-10 uppercase hover:border-b border-black text-lg">About us</li>
+              <li className="ml-10  transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-100 text-lg font-sans">About Us</li>
             </Link>
             <Link href = "/team">
-              <li className="ml-10 uppercase hover:border-b border-black text-lg">Our team</li>
+              <li className="ml-10  transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-100 text-lg font-sans">Our Team</li>
             </Link>
             <Link href = "/contact">
-              <li className="ml-10 uppercase hover:border-b border-black text-lg">Contact us</li>
+              <li className="ml-10  transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-100 text-lg font-sans">Contact Us</li>
             </Link>
           </ul>
         </div>

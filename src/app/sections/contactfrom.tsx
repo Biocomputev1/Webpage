@@ -7,14 +7,17 @@ export type FormData = {
   name: string;
   email: string;
   subject: string;
+  linkedin: string;
   message: string;
 };
 
 export default function ContactForm (){
+  const [loading,setLoading] = useState(false)
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
     subject: '',
+    linkedin: '',
     message: ''
   });
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
@@ -27,6 +30,7 @@ export default function ContactForm (){
     if (!formData.email) errors.email = 'Email is required';
     if (!formData.subject) errors.subject = 'Subject is required';
     if (!formData.message) errors.message = 'Message is required';
+    if (!formData.linkedin) errors.linkedin = 'LinkedIn profile is required';
     return errors;
   };
 
@@ -34,31 +38,49 @@ export default function ContactForm (){
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const validationErrors = validate();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
-    }
+    async function handleSubmit(event: React.FormEvent<HTMLFormElement>){
+        event.preventDefault();
+        setLoading(true)
+        const validationErrors = validate();
+        if (Object.keys(validationErrors).length > 0) {
+          setErrors(validationErrors);
+          return;
+        }
     setErrors({});
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        access_key: "3a5649f6-b025-413b-9d54-fd2029961e6a",
-        ...formData,
-      }),
-    });
-    const result = await response.json();
-    if (result.success) {
-      setSuccess(true);
-      setFormData({ name: '', email: '', subject: '', message: '' });
-    }
-  }
+        const formData = new FormData(event.target as HTMLFormElement);
+        try{
+            const response = await fetch('/api/contacttest', {
+                method: 'post',
+                body: formData,
+            });
+           if(response.ok){
+                const responseData = await response.json();
+                console.log(responseData['message']);
+                setSuccess(true);
+                setErrors({});
+                setFormData({
+                  name: '',
+                  email: '',
+                  subject: '',
+                  linkedin: '',
+                  message: ''
+                });
+              setTimeout(() => setSuccess(false), 5000);
+            } else {
+                const errorText = await response.text(); // HTML or plain error
+                //throw new Error(`HTTP ${response.status}: ${errorText.slice(0, 100)}`);
+                console.error(`Server Error: ${errorText}`);
+                setErrors({ submit: 'Submission failed. Please try again later.' });
+            }
+          //  const responseData = await response.json();
+        }
+        catch(error) {
+            console.error('Error submitting form:', error);
+            alert('There was an error submitting the form. Please try again later.');
+        }finally{
+          setLoading(false);
+        }
+    };
 
   return (
     <main className="bg-[#EFE4F4] min-h-screen flex items-center justify-center">
@@ -81,7 +103,7 @@ export default function ContactForm (){
                   </div>
                   <a href="mailto:recipient@example.com" className="text-[#007bff] text-sm ml-4">
                     <small className="block">Mail</small>
-                    <strong>chief@biocomputeinc.com</strong>
+                    <strong>anagha@biocomputeinc.com</strong>
                   </a>
                 </li>
               </ul>
@@ -114,6 +136,7 @@ export default function ContactForm (){
                 type='text' 
                 placeholder='Name'
                 name="name"
+                autoComplete='off'
                 value={formData.name}
                 onChange={handleChange}
                 className="w-full text-gray-800 rounded-md py-2.5 px-4 pl-10 border text-sm outline-none focus:border-blue-500" 
@@ -128,6 +151,7 @@ export default function ContactForm (){
                 type='email' 
                 placeholder='Email'
                 name="email"
+                autoComplete='off'
                 value={formData.email}
                 onChange={handleChange}
                 className="w-full text-gray-800 rounded-md py-2.5 px-4 pl-10 border text-sm outline-none focus:border-blue-500"
@@ -142,21 +166,45 @@ export default function ContactForm (){
               type='text' 
               placeholder='Subject'
               name='subject'  
+              autoComplete='off'
               value={formData.subject}
               onChange={handleChange}
               className="w-full text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-none focus:border-blue-500" 
             />
             {errors.subject && <div className="text-red-500 text-sm">{errors.subject}</div>}
+            <div className = "relative">
+              <input
+                type="url"
+                name="linkedin"
+                placeholder="Linkedin Profile Link"
+                autoComplete="off"
+                value={formData.linkedin}
+                onChange={handleChange}
+                className="w-full text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-none focus:border-blue-500" 
+              />
+              {errors.linkedin && <p className="text-red-500 text-sm">{errors.linkedin}</p>}
+            </div>
             <textarea 
               placeholder='Message'
               name="message"
+              autoComplete='off'
               value={formData.message}
               onChange={handleChange}
               className="w-full text-gray-800 rounded-md px-4 border text-sm pt-2.5 outline-none focus:border-blue-500"
             />
             {errors.message && <div className="text-red-500 text-sm">{errors.message}</div>}
+            {errors.submit && (<div className="text-red-600 text-sm font-medium">{errors.submit}</div>)}
             <button type='submit'
-              className="text-white bg-purple-400 hover:bg-blue-400 rounded-md text-sm px-4 py-2.5 w-full !mt-6">Send</button>
+              className="flex items-center justify-center gap-2 text-white bg-purple-400 hover:bg-purple-500 transition duration-300 ease-in-out rounded-md text-sm px-4 py-2.5 w-full mt-6"
+              disabled={loading}>
+              {loading && (
+                <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+                </svg>
+              )}
+              {loading ? 'Sending...' : 'Send'}
+            </button>
           </form>
         </div>
       </div>
