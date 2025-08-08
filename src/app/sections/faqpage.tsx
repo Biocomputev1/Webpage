@@ -166,21 +166,23 @@ const FaqSection: FC = () => {
     ]
 
     return (
-        <section className="bg-[#EFE4F4] w-full leading-relaxed max-w-screen-xl mx-auto px-4 md:px-8">
-            <div className="space-y-3 text-center">
-                <h1 className="text-3xl pt-12 text-gray-800 font-semibold">
-                    Frequently Asked Questions
-                </h1>
-                <p className="text-gray-600 max-w-lg mx-auto text-lg">
-                    You Asked, We Sequenced, Because Googling &apos;DNA Storage&apos; Can Get Weird.
-                </p>
-            </div>
-            <div className="mt-14 max-w-2xl mx-auto">
-                {
-                    faqsList.map((item, idx) => (
-                        <FaqsCard key={idx} idx={idx} faqsItem={item} />
-                    ))
-                }
+        <section className="bg-[#EFE4F4] p-6 w-screen leading-relaxed max-w-screen-xl mx-auto px-4 md:px-8">
+            <div className="bg-gray-50 rounded-2xl shadow-lg hover:shadow-xl  sm:mx-8  md:mx-16 lg:mx-24 xl:mx-40 max-w-screen-xl mx-auto">
+                <div className="space-y-3 text-center">
+                    <h1 className="text-3xl pt-12 text-gray-800 font-semibold">
+                        Frequently Asked Questions
+                    </h1>
+                    <p className="text-gray-600 max-w-lg mx-auto text-lg">
+                        You Asked, We Sequenced, Because Googling &apos;DNA Storage&apos; Can Get Weird.
+                    </p>
+                </div>
+                <div className="mt-14 max-w-2xl mx-auto p-4">
+                    {
+                        faqsList.map((item, idx) => (
+                            <FaqsCard key={idx} idx={idx} faqsItem={item} />
+                        ))
+                    }
+                </div>
             </div>
         </section>
     )

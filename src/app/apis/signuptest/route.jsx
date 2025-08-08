@@ -3,14 +3,14 @@ const nodemailer = require('nodemailer');
 
 export async function POST(request){
     const username = process.env.NEXT_PUBLIC_EMAIL_USERNAME;
-    const password = process.env.NEXT_PUBLIC_EMAIL_PASSWORD;
+    const password = process.env.NEXT_PUBLIC_EMAIL_PASSWORD; // Use private env variable for password
     const mymail = process.env.NEXT_PUBLIC_PERSONAL_EMAIL;
 
     console.log("dealing with request");
     const formData = await request.formData();
     const name = formData.get('name');
     const email = formData.get('email');
-    const subject = formData.get('subject');
+    const cname = formData.get('cname');
     const linkedin = formData.get('linkedin');
     const message = formData.get('message');
 
@@ -32,7 +32,7 @@ export async function POST(request){
             from: `"${name}" <${email}>`,
             to: mymail,
             replyTo: email,
-            subject: `Response from Website Contact form`,
+            subject: `Response from Website Signup form`,
             text: message,
             html: 
             `<div style = "background-color: #EFE4F4; padding: 40px 0; font-family: Arial, sans-serif; line-height: 1.6; color: #333;border-radius: 8px;">
@@ -75,8 +75,8 @@ export async function POST(request){
                             <td style="padding: 8px 0;"><a href="${linkedin}" style="color: #5C2D91;" target="_blank">${linkedin}</a></td>
                         </tr>
                         <tr>
-                            <td style="padding: 8px 0;"><strong>Subject:</strong></td>
-                            <td style="padding: 8px 0;">${subject}</td>
+                            <td style="padding: 8px 0;"><strong>Company Name:</strong></td>
+                            <td style="padding: 8px 0;">${cname}</td>
                         </tr>
                     </table>
                     <hr style="margin: 30px 0; border: none; border-top: 1px solid #ddd;" />
@@ -88,7 +88,7 @@ export async function POST(request){
                     </div>
 
                     <p style="font-size: 12px; color: #888; text-align: center; margin-top: 40px;">
-                        This message was sent from your website's contact form @Biocompute.inc.
+                        This message was sent from your website's Signup form @Biocompute.inc
                     </p>
                 </div>
             </div>`

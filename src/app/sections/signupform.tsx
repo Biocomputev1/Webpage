@@ -3,9 +3,17 @@ import React, { useState } from 'react';
 import Alert from '@mui/material/Alert';
 import { AlertTitle } from '@mui/material';
 
+export type FormData = {
+  name: string;
+  email: string;
+  linkedin: string;
+  cname: string;
+  message: string;
+};
 
 const SignupForm: React.FC = () => {
-    const [formData, setFormData] = useState({
+    const [loading, setLoading] = useState(false);
+    const [formData, setFormData] = useState<FormData>({
         name: '',
         email: '',
         linkedin: '',
@@ -33,27 +41,46 @@ const SignupForm: React.FC = () => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setLoading(true);
         const validationErrors = validate();
         if(Object.keys(validationErrors).length > 0){
+            setLoading(false);
             return setErrors(validationErrors);
         }
         setErrors({});
-        const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Accept: "application/json",
-            },
-            body: JSON.stringify({
-              access_key: "3a5649f6-b025-413b-9d54-fd2029961e6a",
-              ...formData,
-            }),
-          });
-          const result = await response.json();
-          if (result.success) {
-            setSuccess(true);
-            setFormData({ name: '', email: '', linkedin: '', cname: '', message: ''});
-          }
+        const formData = new FormData(e.target as HTMLFormElement);
+        try{
+            const response = await fetch('/apis/signuptest', {
+                method: 'post',
+                body: formData,
+            });
+           if(response.ok){
+                const responseData = await response.json();
+                console.log(responseData['message']);
+                setSuccess(true);
+                setErrors({});
+                setFormData({
+                  name: '',
+                  email: '',
+                  cname: '',
+                  linkedin: '',
+                  message: ''
+                });
+              setTimeout(() => setSuccess(false), 5000);
+            } else {
+                const errorText = await response.text(); // HTML or plain error
+                //throw new Error(`HTTP ${response.status}: ${errorText.slice(0, 100)}`);
+                console.error(`Server Error: ${errorText}`);
+                setErrors({ submit: 'Submission failed. Please try again later.' });
+            }
+          //  const responseData = await response.json();
+        }
+        catch(error) {
+            console.error('Error submitting form:', error);
+            alert('There was an error submitting the form. Please try again later.');
+        }finally{
+          setLoading(false);
+        }  
     };
 
     return (
@@ -74,6 +101,7 @@ const SignupForm: React.FC = () => {
                             type="text"
                             name="name"
                             placeholder="Name"
+                            autoComplete='name'
                             value={formData.name}
                             onChange={handleChange}
                             className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300"
@@ -86,6 +114,7 @@ const SignupForm: React.FC = () => {
                             type="email"
                             name="email"
                             placeholder="Email"
+                            autoComplete='email'
                             value={formData.email}
                             onChange={handleChange}
                             className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300"
@@ -98,6 +127,7 @@ const SignupForm: React.FC = () => {
                             type="url"
                             name="linkedin"
                             placeholder="Linkedin"
+                            autoComplete='url'
                             value={formData.linkedin}
                             onChange={handleChange}
                             className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300"
@@ -110,6 +140,7 @@ const SignupForm: React.FC = () => {
                             type="text"
                             name="cname"
                             placeholder="Company name"
+                            autoComplete='organization'
                             value={formData.cname}
                             onChange={handleChange}
                             className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300"
@@ -121,18 +152,26 @@ const SignupForm: React.FC = () => {
                         <textarea
                             name="message"
                             placeholder="Your Message"
+                            autoComplete='off'
                             value={formData.message}
                             onChange={handleChange}
                             className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-purple-300 h-24"
                         />
                         {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
                     </div>
-
-                    <button type="submit" className="w-full bg-purple-500 text-white py-2 rounded-lg hover:bg-purple-600">
-                        Send
+                    {errors.submit && (<div className="text-red-600 text-sm font-medium">{errors.submit}</div>)}
+                    <button type='submit'
+                        className="flex items-center justify-center gap-2 text-white bg-purple-400 hover:bg-purple-500 transition duration-300 ease-in-out rounded-md text-sm px-4 py-2.5 w-full mt-6"
+                        disabled={loading}>
+                        {loading && (
+                            <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+                            </svg>
+                        )}
+                        {loading ? 'Sending...' : 'Send'}
                     </button>
                 </form>
-
             </div>
         </div>
     );
