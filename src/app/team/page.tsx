@@ -4,6 +4,7 @@ import Anagha from "@/app/assets/Anaghaupdated.jpeg"
 import Akansha from "@/app/assets/Akansha.jpg"
 import Ajay from "@/app/assets/Ajay.jpg"
 import Naveen from "@/app/assets/Naveen.png"
+import Background from "@/app/assets/Background.jpg"
 export default function Team() {
     const team = [
         {
@@ -29,7 +30,7 @@ export default function Team() {
     ]
     return (  
         <>
-            <section className="py-14 bg-gray-50">
+            <section className="py-14" style={{ backgroundImage: `url(${Background.src})` }}>
                 <div className="max-w-screen-xl mx-auto px-4 md:px-8">
                     <div className="max-w-xl mx-auto sm:text-center">
                         <h3 className="text-gray-800 text-3xl font-semibold sm:text-4xl">

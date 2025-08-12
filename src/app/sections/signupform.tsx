@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Alert from '@mui/material/Alert';
 import { AlertTitle } from '@mui/material';
+import Background from "@/app/assets/cformBackground.jpg"
 
 export type FormData = {
   name: string;
@@ -84,7 +85,7 @@ const SignupForm: React.FC = () => {
     };
 
     return (
-        <div className="flex justify-center items-center min-h-screen bg-purple-100">
+        <div className="flex justify-center items-center min-h-screen" style={{ backgroundImage: `url(${Background.src})` }}>
             <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg">
                 <h2 className="text-2xl font-semibold text-gray-700 text-center mb-4">Sign up for early access</h2>
                 <p className="text-gray-500 text-center mb-6">We would love to have you on board</p>

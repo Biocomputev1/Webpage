@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import Alert from '@mui/material/Alert';
 import { AlertTitle } from '@mui/material';
+import Background from "@/app/assets/cformBackground.jpg"
 
 export type FormData = {
   name: string;
@@ -83,7 +84,7 @@ export default function ContactForm (){
     };
 
   return (
-    <main className="bg-[#EFE4F4] min-h-screen flex items-center justify-center">
+    <main className="min-h-screen flex items-center justify-center" style={{ backgroundImage: `url(${Background.src})` }}>
       <div className="mt-6">
         <div className="grid sm:grid-cols-2 items-start gap-12 p-8 mx-auto max-w-4xl bg-white shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-md font-[sans-serif]">
           <div>

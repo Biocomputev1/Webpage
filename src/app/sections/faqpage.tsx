@@ -166,7 +166,7 @@ const FaqSection: FC = () => {
     ]
 
     return (
-        <section className="bg-[#EFE4F4] p-6 w-screen leading-relaxed max-w-screen-xl mx-auto px-4 md:px-8">
+        <section className="bg-[#EFE4F4] p-6 w-auto leading-relaxed mx-auto px-4 md:px-8">
             <div className="bg-gray-50 rounded-2xl shadow-lg hover:shadow-xl  sm:mx-8  md:mx-16 lg:mx-24 xl:mx-40 max-w-screen-xl mx-auto">
                 <div className="space-y-3 text-center">
                     <h1 className="text-3xl pt-12 text-gray-800 font-semibold">

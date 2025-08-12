@@ -123,7 +123,7 @@ export default function Hero () {
                     </span>
                 </li>
                 </ul>
-                <button onClick={handleClick} className="group relative inline-flex h-[calc(48px+8px)] items-center justify-center rounded-lg bg-neutral-950 py-1 pl-6 pr-14 font-medium text-neutral-50 my-8">
+                {/* <button onClick={handleClick} className="group relative inline-flex h-[calc(48px+8px)] items-center justify-center rounded-lg bg-neutral-950 py-1 pl-6 pr-14 font-medium text-neutral-50 my-8">
                     <span className="z-10 pr-2">Sign up</span>
                     <div className="absolute right-1 inline-flex h-12 w-12 items-center justify-end rounded-lg bg-neutral-700 transition-[width] group-hover:w-[calc(100%-8px)]">
                         <div className="mr-3.5 flex items-center justify-center">
@@ -132,7 +132,33 @@ export default function Hero () {
                             </svg>
                         </div>
                     </div>
-                </button>
+                </button> */}
+                <button onClick={handleClick} className="bg-[#aa73cd] mt-6 relative no-underline group cursor-pointer inset-shadow-violet-500 shadow-violet-500 rounded-xl p-px text-xs font-semibold leading-6  text-white inline-block transition delay-50 duration-300 ease-in-out hover:-translate-y-1 hover:scale-100 hover:shadow-lg">
+                    <span className="absolute inset-0 overflow-hidden rounded-full">
+                        <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                    </span>
+                    <div className="relative flex space-x-2 h-[calc(40px+8px)] text-lg items-center z-10 rounded-xl  py-0.5 px-4 ring-1 ring-white/10 ">
+                        <span>
+                        Sign Up !
+                        </span>
+                        <svg
+                        fill="none"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        width="16"
+                        xmlns="http://www.w3.org/2000/svg"
+                        >
+                        <path
+                            d="M10.75 8.75L14.25 12L10.75 15.25"
+                            stroke="currentColor"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="1.5"
+                        />
+                        </svg>
+                    </div>
+                    <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
+                    </button>
             </div>
             {/* Image on the Right */}
             <div className="w-full mt-6 md:mt-0 flex justify-center">
