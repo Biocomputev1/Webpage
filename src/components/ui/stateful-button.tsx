@@ -20,24 +20,6 @@ export const Button = ({ className, children, success = false, ...props }: Butto
     );
   };
 
-  const animateSuccess = async () => {
-    await animate(
-      ".loader",
-      { width: "0px", scale: 0, display: "none" },
-      { duration: 0.2 }
-    );
-    await animate(
-      ".check",
-      { width: "20px", scale: 1, display: "block" },
-      { duration: 0.2 }
-    );
-
-    await animate(
-      ".check",
-      { width: "0px", scale: 0, display: "none" },
-      { delay: 2, duration: 0.2 }
-    );
-  };
 
   const handleClick = async (event: React.MouseEvent<HTMLButtonElement>) => {
     await animateLoading();
@@ -55,8 +37,6 @@ export const Button = ({ className, children, success = false, ...props }: Butto
     }, [success, animate]);
 
 
-  const { onClick, ...buttonProps } = props;
-
   return (
     <motion.button
       layout
@@ -65,7 +45,7 @@ export const Button = ({ className, children, success = false, ...props }: Butto
         "flex min-w-[120px] cursor-pointer items-center justify-center gap-2 rounded-full bg-purple-500 px-4 py-2 font-medium text-white ring-offset-2 transition duration-200 hover:ring-2 hover:ring-purple-500 dark:ring-offset-black",
         className
       )}
-      {...buttonProps}
+      {...(props as React.ButtonHTMLAttributes<HTMLButtonElement>)}
       onClick={handleClick}
     >
       <motion.div layout className="flex items-center gap-2">
