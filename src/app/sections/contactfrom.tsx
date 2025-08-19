@@ -138,7 +138,7 @@ export default function ContactForm (){
                 type='text' 
                 placeholder='Name'
                 name="name"
-                autoComplete='off'
+                autoComplete='on'
                 value={formData.name}
                 onChange={handleChange}
                 className="w-full text-gray-800 rounded-md py-2.5 px-4 pl-10 border text-sm outline-none focus:border-blue-500" 
@@ -153,7 +153,7 @@ export default function ContactForm (){
                 type='email' 
                 placeholder='Email'
                 name="email"
-                autoComplete='off'
+                autoComplete='on'
                 value={formData.email}
                 onChange={handleChange}
                 className="w-full text-gray-800 rounded-md py-2.5 px-4 pl-10 border text-sm outline-none focus:border-blue-500"
@@ -168,7 +168,7 @@ export default function ContactForm (){
               type='text' 
               placeholder='Subject'
               name='subject'  
-              autoComplete='off'
+              autoComplete='on'
               value={formData.subject}
               onChange={handleChange}
               className="w-full text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-none focus:border-blue-500" 
@@ -179,7 +179,7 @@ export default function ContactForm (){
                 type="url"
                 name="linkedin"
                 placeholder="Linkedin Profile Link"
-                autoComplete="off"
+                autoComplete="on"
                 value={formData.linkedin}
                 onChange={handleChange}
                 className="w-full text-gray-800 rounded-md py-2.5 px-4 border text-sm outline-none focus:border-blue-500" 
@@ -189,7 +189,7 @@ export default function ContactForm (){
             <textarea 
               placeholder='Message'
               name="message"
-              autoComplete='off'
+              autoComplete='on'
               value={formData.message}
               onChange={handleChange}
               className="w-full text-gray-800 rounded-md px-4 border text-sm pt-2.5 outline-none focus:border-blue-500"

@@ -1,9 +1,9 @@
 "use client";
 import { cn } from "@/lib/utils";
 import React, { useEffect } from "react";
-import { motion, useAnimate } from "framer-motion";
+import { motion, useAnimate, type HTMLMotionProps } from "framer-motion";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends HTMLMotionProps<"button"> {
   className?: string;
   children: React.ReactNode;
   success?: boolean; 
@@ -45,7 +45,7 @@ export const Button = ({ className, children, success = false, ...props }: Butto
         "flex min-w-[120px] cursor-pointer items-center justify-center gap-2 rounded-full bg-purple-500 px-4 py-2 font-medium text-white ring-offset-2 transition duration-200 hover:ring-2 hover:ring-purple-500 dark:ring-offset-black",
         className
       )}
-      {...(props as React.ButtonHTMLAttributes<HTMLButtonElement>)}
+      {...props}
       onClick={handleClick}
     >
       <motion.div layout className="flex items-center gap-2">
