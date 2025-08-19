@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Alert from '@mui/material/Alert';
 import { AlertTitle } from '@mui/material';
 import Background from "@/app/assets/cformBackground.jpg"
+import { Button } from '@/components/ui/stateful-button';
 
 export type FormData = {
   name: string;
@@ -195,17 +196,14 @@ export default function ContactForm (){
             />
             {errors.message && <div className="text-red-500 text-sm">{errors.message}</div>}
             {errors.submit && (<div className="text-red-600 text-sm font-medium">{errors.submit}</div>)}
-            <button type='submit'
-              className="flex items-center justify-center gap-2 text-white bg-purple-400 hover:bg-purple-500 transition duration-300 ease-in-out rounded-md text-sm px-4 py-2.5 w-full mt-6"
-              disabled={loading}>
-              {loading && (
-                <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
-                </svg>
-              )}
-              {loading ? 'Sending...' : 'Send'}
-            </button>
+            <Button 
+                  type="submit"
+                  className="flex items-center justify-center gap-2 duration-300 ease-in-out rounded-md text-xl px-4 py-2.5 w-full mt-6"
+                  disabled={loading}
+                  success={success} 
+                >
+                  {loading ? "Dropping..." : "Drop!"}
+            </Button>
           </form>
         </div>
       </div>
