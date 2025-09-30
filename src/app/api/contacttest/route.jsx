@@ -88,7 +88,7 @@ export async function POST(request){
                     </div>
 
                     <p style="font-size: 12px; color: #888; text-align: center; margin-top: 40px;">
-                        This message was sent from your website's contact form @Biocompute.inc.
+                        This message was sent from your website's contact form @Biocomputeinc.com
                     </p>
                 </div>
             </div>`
