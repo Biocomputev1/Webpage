@@ -4,6 +4,7 @@ import Anagha from "@/app/assets/Anaghaupdated.jpeg"
 import Akansha from "@/app/assets/Akansha.jpg"
 import Ajay from "@/app/assets/Ajay.jpg"
 import Naveen from "@/app/assets/Naveen.png"
+import SaiPooja from "@/app/assets/SaiPooja.jpg"
 import Background from "@/app/assets/Background.jpg"
 export default function Team() {
     const team = [
@@ -26,6 +27,11 @@ export default function Team() {
             avatar: Naveen,
             name: "Naveen",
             title: "Electronics Engineer"
+        },
+        {
+            avatar: SaiPooja,
+            name: "Sai Pooja",
+            title: "Bio-Engineer"
         },
     ]
     return (  
