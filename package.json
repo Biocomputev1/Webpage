@@ -22,7 +22,7 @@
     "clsx": "^2.1.1",
     "lucide-react": "^0.483.0",
     "mini-svg-data-uri": "^1.4.4",
-    "next": "^15.2.6",
+    "next": "^15.2.8",
     "next-video": "^2.1.0",
     "next-videos": "1.4.1",
     "nodemailer": "^6.10.1",

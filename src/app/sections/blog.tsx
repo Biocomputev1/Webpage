@@ -1,3 +1,8 @@
+/*
+author: Naveen@BioCompute
+description: Blog Section
+This component displays blog posts from Substack
+*/ 
 import Link from 'next/link';
 import Image from 'next/image';
 import blogimage1 from '@/app/assets/blogimage1.png';

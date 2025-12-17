@@ -1,3 +1,8 @@
+/*
+author: Naveen@BioCompute
+description: Contact Form Section
+This component displays a contact form for users to reach out
+*/
 'use client'
 import React, { useState } from 'react';
 import Alert from '@mui/material/Alert';
